@@ -1,0 +1,95 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd ">
+	<!-- Shiro 的Web过滤器 -->
+	<!-- 1. 配置 SecurityManager! -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<!-- 注入session管理器 -->
+		<!-- <property name="sessionManager" ref="sessionManager" /> -->
+		<!-- 注入缓存管理器 -->
+		<property name="cacheManager" ref="cacheManager" />
+		<!-- 自定义realm -->
+		<property name="authenticator" ref="authenticator"></property>
+		<property name="realms">
+			<list>
+				<ref bean="jdbcRealm" />
+				<!-- <ref bean="jdbcRealm2" /> -->
+			</list>
+		</property>
+	</bean>
+	<!-- 2. 配置 CacheManager -->
+	<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:shiro-ehcache.xml" />
+	</bean>
+	<!-- 多realm认证器 -->
+	<bean id="authenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
+		<property name="authenticationStrategy">
+			<bean class="org.apache.shiro.authc.pam.AllSuccessfulStrategy"></bean>
+		</property>
+	</bean>
+	<!-- 3. 配置 Realm -->
+	<bean id="jdbcRealm" class="zh.shiro.CustomRealm">
+		<property name="credentialsMatcher">
+			<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+				<property name="hashAlgorithmName" value="MD5" />
+				<property name="hashIterations" value="1" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="jdbcRealm2" class="zh.shiro.CustomRealm2">
+		<property name="credentialsMatcher">
+			<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+				<property name="hashAlgorithmName" value="SHA1" />
+				<property name="hashIterations" value="1" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 4. 配置 LifecycleBeanPostProcessor. 可以自定的来调用配置在 Spring IOC 容器中 shiro bean 的生命周期方法. -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	<!-- 5. 启用 IOC 容器中使用 shiro 的注解. 但必须在配置了 LifecycleBeanPostProcessor 之后才可以使用. -->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor" />
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+	<!-- 6. 配置 ShiroFilter. -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/first.html" />
+		<property name="successUrl" value="/comm/first.jsp" />
+		<property name="unauthorizedUrl" value="/comm/unauthorized.jsp" />
+		<!-- 配置哪些页面需要受保护. 以及访问这些页面需要的权限. 1). anon 可以被匿名访问 2). authc 必须认证(即登录)后才可能访问的页面. 3). logout 登出. 4). roles 角色过滤器 -->
+		<!-- <property name="filterChainDefinitions">
+			<value>
+				/comm/login.jsp = anon
+				/first.html=anon
+				/login.html=anon
+				
+				/jsp/admin/admin.jsp=roles[admin]
+				/jsp/user/user.jsp=roles[user]
+				/** = authc
+			</value>
+		</property> -->
+		<property name="filterChainDefinitionMap" ref="filterChainDefinitionMap"/>
+	</bean>
+	<!-- 通过工厂方配置beanMap -->
+	<bean id="filterChainDefinitionMap" factory-bean="filterChainDefinitionMapBuilder" factory-method="buildFilterChainDefinitionMap"></bean>
+	<bean id="filterChainDefinitionMapBuilder" class="zh.shiro.factory.FilterChainDefinitionMapBuilder"></bean>
+	<!-- 会话管理器 -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- session的失效时长，单位毫秒 -->
+        <property name="globalSessionTimeout" value="600000"/>
+        <!-- 删除失效的session -->
+        <property name="deleteInvalidSessions" value="true"/>
+    </bean>
+    <!-- logout -->
+    <bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter"> 
+        <property name="redirectUrl" value="/first.html" /> 
+    </bean>
+</beans>

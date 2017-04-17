@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zh.base.mapper.ICustomSysUserMapper">
+	<resultMap id="BaseResultMap" type="zh.base.entity.TRole">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="rolename" property="rolename" jdbcType="VARCHAR" />
+		<result column="createdate" property="createdate" jdbcType="TIMESTAMP" />
+		<result column="updatedate" property="updatedate" jdbcType="TIMESTAMP" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="getRoles" parameterType="zh.base.entity.TUser" resultType="zh.base.entity.TRole">
+		SELECT * FROM t_role WHERE id IN(SELECT roleid FROM t_userrole WHERE userid=#{user.id})
+	</select>
+</mapper>

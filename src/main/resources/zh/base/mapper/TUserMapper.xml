@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zh.base.mapper.TUserMapper" >
+  <resultMap id="BaseResultMap" type="zh.base.entity.TUser" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="createdate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="updatedate" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="createipaddress" property="createipaddress" jdbcType="VARCHAR" />
+    <result column="updateipaddress" property="updateipaddress" jdbcType="VARCHAR" />
+    <result column="registerdate" property="registerdate" jdbcType="TIMESTAMP" />
+    <result column="registeripaddress" property="registeripaddress" jdbcType="VARCHAR" />
+    <result column="groupid" property="groupid" jdbcType="VARCHAR" />
+    <result column="menugroupid" property="menugroupid" jdbcType="VARCHAR" />
+    <result column="loginidaddress" property="loginidaddress" jdbcType="VARCHAR" />
+    <result column="useraddress" property="useraddress" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="imageurl" property="imageurl" jdbcType="VARCHAR" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+    <result column="bloodtype" property="bloodtype" jdbcType="VARCHAR" />
+    <result column="says" property="says" jdbcType="VARCHAR" />
+    <result column="locked" property="locked" jdbcType="CHAR" />
+    <result column="freeze" property="freeze" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, username, password, createdate, updatedate, createipaddress, updateipaddress, 
+    registerdate, registeripaddress, groupid, menugroupid, loginidaddress, useraddress, 
+    salt, phone, sex, qq, email, birthday, description, imageurl, school, bloodtype, 
+    says, locked, freeze
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="zh.base.entity.TUserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="zh.base.entity.TUserExample" >
+    delete from t_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="zh.base.entity.TUser" >
+    insert into t_user (id, username, password, 
+      createdate, updatedate, createipaddress, 
+      updateipaddress, registerdate, registeripaddress, 
+      groupid, menugroupid, loginidaddress, 
+      useraddress, salt, phone, 
+      sex, qq, email, birthday, 
+      description, imageurl, school, 
+      bloodtype, says, locked, 
+      freeze)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}, #{createipaddress,jdbcType=VARCHAR}, 
+      #{updateipaddress,jdbcType=VARCHAR}, #{registerdate,jdbcType=TIMESTAMP}, #{registeripaddress,jdbcType=VARCHAR}, 
+      #{groupid,jdbcType=VARCHAR}, #{menugroupid,jdbcType=VARCHAR}, #{loginidaddress,jdbcType=VARCHAR}, 
+      #{useraddress,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{description,jdbcType=VARCHAR}, #{imageurl,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, 
+      #{bloodtype,jdbcType=VARCHAR}, #{says,jdbcType=VARCHAR}, #{locked,jdbcType=CHAR}, 
+      #{freeze,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="zh.base.entity.TUser" >
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="createdate != null" >
+        createdate,
+      </if>
+      <if test="updatedate != null" >
+        updatedate,
+      </if>
+      <if test="createipaddress != null" >
+        createipaddress,
+      </if>
+      <if test="updateipaddress != null" >
+        updateipaddress,
+      </if>
+      <if test="registerdate != null" >
+        registerdate,
+      </if>
+      <if test="registeripaddress != null" >
+        registeripaddress,
+      </if>
+      <if test="groupid != null" >
+        groupid,
+      </if>
+      <if test="menugroupid != null" >
+        menugroupid,
+      </if>
+      <if test="loginidaddress != null" >
+        loginidaddress,
+      </if>
+      <if test="useraddress != null" >
+        useraddress,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="imageurl != null" >
+        imageurl,
+      </if>
+      <if test="school != null" >
+        school,
+      </if>
+      <if test="bloodtype != null" >
+        bloodtype,
+      </if>
+      <if test="says != null" >
+        says,
+      </if>
+      <if test="locked != null" >
+        locked,
+      </if>
+      <if test="freeze != null" >
+        freeze,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createipaddress != null" >
+        #{createipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="updateipaddress != null" >
+        #{updateipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null" >
+        #{registerdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registeripaddress != null" >
+        #{registeripaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null" >
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="menugroupid != null" >
+        #{menugroupid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginidaddress != null" >
+        #{loginidaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null" >
+        #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="imageurl != null" >
+        #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodtype != null" >
+        #{bloodtype,jdbcType=VARCHAR},
+      </if>
+      <if test="says != null" >
+        #{says,jdbcType=VARCHAR},
+      </if>
+      <if test="locked != null" >
+        #{locked,jdbcType=CHAR},
+      </if>
+      <if test="freeze != null" >
+        #{freeze,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="zh.base.entity.TUserExample" resultType="java.lang.Integer" >
+    select count(*) from t_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_user
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null" >
+        createdate = #{record.createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedate != null" >
+        updatedate = #{record.updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createipaddress != null" >
+        createipaddress = #{record.createipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateipaddress != null" >
+        updateipaddress = #{record.updateipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerdate != null" >
+        registerdate = #{record.registerdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.registeripaddress != null" >
+        registeripaddress = #{record.registeripaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupid != null" >
+        groupid = #{record.groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menugroupid != null" >
+        menugroupid = #{record.menugroupid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginidaddress != null" >
+        loginidaddress = #{record.loginidaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useraddress != null" >
+        useraddress = #{record.useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salt != null" >
+        salt = #{record.salt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qq != null" >
+        qq = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        birthday = #{record.birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imageurl != null" >
+        imageurl = #{record.imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.school != null" >
+        school = #{record.school,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bloodtype != null" >
+        bloodtype = #{record.bloodtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.says != null" >
+        says = #{record.says,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locked != null" >
+        locked = #{record.locked,jdbcType=CHAR},
+      </if>
+      <if test="record.freeze != null" >
+        freeze = #{record.freeze,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_user
+    set id = #{record.id,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      createdate = #{record.createdate,jdbcType=TIMESTAMP},
+      updatedate = #{record.updatedate,jdbcType=TIMESTAMP},
+      createipaddress = #{record.createipaddress,jdbcType=VARCHAR},
+      updateipaddress = #{record.updateipaddress,jdbcType=VARCHAR},
+      registerdate = #{record.registerdate,jdbcType=TIMESTAMP},
+      registeripaddress = #{record.registeripaddress,jdbcType=VARCHAR},
+      groupid = #{record.groupid,jdbcType=VARCHAR},
+      menugroupid = #{record.menugroupid,jdbcType=VARCHAR},
+      loginidaddress = #{record.loginidaddress,jdbcType=VARCHAR},
+      useraddress = #{record.useraddress,jdbcType=VARCHAR},
+      salt = #{record.salt,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      qq = #{record.qq,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=TIMESTAMP},
+      description = #{record.description,jdbcType=VARCHAR},
+      imageurl = #{record.imageurl,jdbcType=VARCHAR},
+      school = #{record.school,jdbcType=VARCHAR},
+      bloodtype = #{record.bloodtype,jdbcType=VARCHAR},
+      says = #{record.says,jdbcType=VARCHAR},
+      locked = #{record.locked,jdbcType=CHAR},
+      freeze = #{record.freeze,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="zh.base.entity.TUser" >
+    update t_user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        createdate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null" >
+        updatedate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createipaddress != null" >
+        createipaddress = #{createipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="updateipaddress != null" >
+        updateipaddress = #{updateipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null" >
+        registerdate = #{registerdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registeripaddress != null" >
+        registeripaddress = #{registeripaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null" >
+        groupid = #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="menugroupid != null" >
+        menugroupid = #{menugroupid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginidaddress != null" >
+        loginidaddress = #{loginidaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null" >
+        useraddress = #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="imageurl != null" >
+        imageurl = #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodtype != null" >
+        bloodtype = #{bloodtype,jdbcType=VARCHAR},
+      </if>
+      <if test="says != null" >
+        says = #{says,jdbcType=VARCHAR},
+      </if>
+      <if test="locked != null" >
+        locked = #{locked,jdbcType=CHAR},
+      </if>
+      <if test="freeze != null" >
+        freeze = #{freeze,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zh.base.entity.TUser" >
+    update t_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      createdate = #{createdate,jdbcType=TIMESTAMP},
+      updatedate = #{updatedate,jdbcType=TIMESTAMP},
+      createipaddress = #{createipaddress,jdbcType=VARCHAR},
+      updateipaddress = #{updateipaddress,jdbcType=VARCHAR},
+      registerdate = #{registerdate,jdbcType=TIMESTAMP},
+      registeripaddress = #{registeripaddress,jdbcType=VARCHAR},
+      groupid = #{groupid,jdbcType=VARCHAR},
+      menugroupid = #{menugroupid,jdbcType=VARCHAR},
+      loginidaddress = #{loginidaddress,jdbcType=VARCHAR},
+      useraddress = #{useraddress,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=VARCHAR},
+      imageurl = #{imageurl,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      bloodtype = #{bloodtype,jdbcType=VARCHAR},
+      says = #{says,jdbcType=VARCHAR},
+      locked = #{locked,jdbcType=CHAR},
+      freeze = #{freeze,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
