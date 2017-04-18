@@ -3,9 +3,12 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
 	<!-- setting配置 -->
-	
+	<!-- <settings>
+		<setting name="cacheEnable" value="true"/>
+		<setting name="lazyLoadingEnable" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+	</settings> -->
 	<!-- 配置mapper.xml文件 -->
 	<!-- <mappers>
 	  

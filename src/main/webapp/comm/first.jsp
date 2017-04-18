@@ -32,7 +32,33 @@
 	color: gray;
 }
 
-.nav {
+.cnt div {
+	margin-top: 10px;
+	width: 20%;
+	height: 400px;
+	float: left;
+}
+
+.cnt div ul li {
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin: 10px;
+	padding: 3px;
+	-moz-user-select: none; /*火狐*/
+	-webkit-user-select: none; /*webkit浏览器*/
+	-ms-user-select: none; /*IE10*/
+	-khtml-user-select: none; /*早期浏览器*/
+	user-select: none;
+}
+
+.cnt div ul p {
+	text-align: center;
+}
+<!--
+导航菜单样式--
+> /* .nav {
 	width: 100%;
 	margin: auto;
 	margin-top: 55px;
@@ -98,7 +124,10 @@
 }
 .nav .nav_search li span:HOVER {
 	cursor: pointer;
-}
+} */
+<!--
+导航菜单样式--
+>
 </style>
 </head>
 <body>
@@ -131,7 +160,8 @@
 		<shiro:guest>请&nbsp;<a href="${baseurl}/comm/login.jsp">登录</a>&nbsp;或&nbsp;<a href="${baseurl}/comm/reg.jsp">注册</a>
 		</shiro:guest>
 	</div>
-	<div class="nav">
+	<!-- 导航菜单开始 -->
+	<!-- <div class="nav">
 		<ul class="nav_navbar" id="nav_navbar">
 			<li>首页</li>
 			<li>基金</li>
@@ -143,7 +173,87 @@
 			<li><input type="text" class="form-control" placeholder="金融资讯" /><span class="glyphicon glyphicon-search"></span></li>
 		</ul>
 		<div style="clear: both;"></div>
+	</div> -->
+	<!-- 导航菜单结束 -->
+	<!--1 start -->
+	<div class="cnt" style="width: 80% margin:0px auto; margin-top: 55px;">
+		<div>
+			<ul>
+				<li>图片</li>
+			</ul>
+		</div>
+		<div>
+			<ul>
+				<li style="text-align: center;">VIP1</li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话</a></li>
+				<p>
+					<a href="#">更多>></a>
+				</p>
+			</ul>
+		</div>
+		<div>
+			<ul>
+				<li style="text-align: center;">VIP2</li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<p>
+					<a href="#">更多>></a>
+				</p>
+			</ul>
+		</div>
+		<div>
+			<ul>
+				<li style="text-align: center;">VIP3</li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<p>
+					<a href="#">更多>></a>
+				</p>
+			</ul>
+		</div>
+		<div>
+			<ul>
+				<li style="text-align: center;">推荐文章</li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+			</ul>
+		</div>
+		<p style="clear: both;"></p>
 	</div>
+	<!-- 1 end-->
 </body>
 <script type="text/javascript">
 	$(function() {
@@ -153,11 +263,34 @@
 		} else {
 			$("#logoutFlag").hide();
 		}
-		$("#nav_navbar li:first-child").addClass('yy');
+		//导航菜单点击事件开始
+		/* $("#nav_navbar li:first-child").addClass('yy');
 		$("#nav_navbar li").click(function() {
 			$(this).addClass('yy');
 			$(this).siblings('li').removeClass('yy');
-		});
+		}); */
+		//导航菜单点击事件结束
+		if (window.Event)
+			document.captureEvents(Event.MOUSEUP);
+
+		document.oncontextmenu = function() {
+			event.cancelBubble = true
+			event.returnValue = false;
+
+			return false;
+		}
+		document.onmousedown = function(e) {
+			if (window.Event) {
+				if (e.which == 2 || e.which == 3)
+					return false;
+			} else {
+				if (event.button == 2 || event.button == 3) {
+					event.cancelBubble = true
+					event.returnValue = false;
+					return false;
+				}
+			}
+		}
 	});
 </script>
 </html>
