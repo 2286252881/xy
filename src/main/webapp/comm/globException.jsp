@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div>
+		<h1>对不起，您没有查看该栏目的权限!</h1>
 		<p>${exceptionResultInfo}</p>
 	</div>
 </body>
