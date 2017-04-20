@@ -154,8 +154,8 @@
 	<br /> --%>
 	<!-- 导航栏部分 -->
 	<div class="fixed-nav-bar">
-		<input id="principal" type="hidden" value="<shiro:principal/>" /> 您好!
-		<shiro:principal />
+		<input id="principal" type="hidden" value="<shiro:principal property="username"/>" /> 您好!
+		<shiro:principal property="username"/>
 		<a id="logoutFlag" href="${baseurl}/logout.html">退出</a>
 		<shiro:guest>请&nbsp;<a href="${baseurl}/comm/login.jsp">登录</a>&nbsp;或&nbsp;<a href="${baseurl}/comm/reg.jsp">注册</a>
 		</shiro:guest>
@@ -185,8 +185,8 @@
 		<div>
 			<ul>
 				<li style="text-align: center;">VIP1</li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/jsp/admin/admin.jsp">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/jsp/user/user.jsp">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
