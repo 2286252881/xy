@@ -68,7 +68,7 @@ public class CustomRealm extends AuthorizingRealm {
 		//4). 盐值.
 		ByteSource credentialsSalt=ByteSource.Util.bytes(u.getSalt());
 		SimpleAuthenticationInfo info = null; //new SimpleAuthenticationInfo(principal, credentials, realmName);
-		info = new SimpleAuthenticationInfo(principal, credentials, credentialsSalt, realmName);
+		info = new SimpleAuthenticationInfo(u, credentials, credentialsSalt, realmName);
 		return info;
 	}
 	//授权 shiro回调的方法
@@ -76,18 +76,12 @@ public class CustomRealm extends AuthorizingRealm {
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		System.out.println("doGetAuthorizationInfo:授权");
 		//1.从PrincipalCollection中获取用户登陆信息
-		Object principal=principals.getPrimaryPrincipal();
-		System.out.println(principal);
-		TUser activeUser=null;
-		try {
-			activeUser= sysService.getUserByUserName((String) principal);
-		} catch (ExceptionResultInfo e1) {
-			e1.printStackTrace();
-		}
+		TUser principal=(TUser) principals.getPrimaryPrincipal();
+		System.out.println(principal.getUsername());
 		//2.从登陆用户的信息中获取用户权限和信息(数据库获取角色权限)
 		Set<String> roles=new HashSet<String>();
 		try {
-			List<TRole> roList=sysService.getRoles(activeUser);
+			List<TRole> roList=sysService.getRoles(principal);
 			for (TRole tRole : roList) {
 				roles.add(tRole.getRolename());
 			}
