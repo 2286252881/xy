@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zh.base.mapper.TArticleMapper" >
+  <resultMap id="BaseResultMap" type="zh.base.entity.TArticle" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="articlename" property="articlename" jdbcType="VARCHAR" />
+    <result column="articletime" property="articletime" jdbcType="TIMESTAMP" />
+    <result column="articleip" property="articleip" jdbcType="VARCHAR" />
+    <result column="articleclick" property="articleclick" jdbcType="INTEGER" />
+    <result column="articletype" property="articletype" jdbcType="VARCHAR" />
+    <result column="articlemodle" property="articlemodle" jdbcType="CHAR" />
+    <result column="articlesupport" property="articlesupport" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="zh.base.entity.TArticle" extends="BaseResultMap" >
+    <result column="articlecontent" property="articlecontent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, userid, articlename, articletime, articleip, articleclick, articletype, articlemodle, 
+    articlesupport
+  </sql>
+  <sql id="Blob_Column_List" >
+    articlecontent
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="zh.base.entity.TArticleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_article
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="zh.base.entity.TArticleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_article
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="zh.base.entity.TArticleKey" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_article
+    where id = #{id,jdbcType=VARCHAR}
+      and userid = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="zh.base.entity.TArticleKey" >
+    delete from t_article
+    where id = #{id,jdbcType=VARCHAR}
+      and userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="zh.base.entity.TArticleExample" >
+    delete from t_article
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="zh.base.entity.TArticle" >
+    insert into t_article (id, userid, articlename, 
+      articletime, articleip, articleclick, 
+      articletype, articlemodle, articlesupport, 
+      articlecontent)
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{articlename,jdbcType=VARCHAR}, 
+      #{articletime,jdbcType=TIMESTAMP}, #{articleip,jdbcType=VARCHAR}, #{articleclick,jdbcType=INTEGER}, 
+      #{articletype,jdbcType=VARCHAR}, #{articlemodle,jdbcType=CHAR}, #{articlesupport,jdbcType=CHAR}, 
+      #{articlecontent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="zh.base.entity.TArticle" >
+    insert into t_article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="articlename != null" >
+        articlename,
+      </if>
+      <if test="articletime != null" >
+        articletime,
+      </if>
+      <if test="articleip != null" >
+        articleip,
+      </if>
+      <if test="articleclick != null" >
+        articleclick,
+      </if>
+      <if test="articletype != null" >
+        articletype,
+      </if>
+      <if test="articlemodle != null" >
+        articlemodle,
+      </if>
+      <if test="articlesupport != null" >
+        articlesupport,
+      </if>
+      <if test="articlecontent != null" >
+        articlecontent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="articlename != null" >
+        #{articlename,jdbcType=VARCHAR},
+      </if>
+      <if test="articletime != null" >
+        #{articletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleip != null" >
+        #{articleip,jdbcType=VARCHAR},
+      </if>
+      <if test="articleclick != null" >
+        #{articleclick,jdbcType=INTEGER},
+      </if>
+      <if test="articletype != null" >
+        #{articletype,jdbcType=VARCHAR},
+      </if>
+      <if test="articlemodle != null" >
+        #{articlemodle,jdbcType=CHAR},
+      </if>
+      <if test="articlesupport != null" >
+        #{articlesupport,jdbcType=CHAR},
+      </if>
+      <if test="articlecontent != null" >
+        #{articlecontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="zh.base.entity.TArticleExample" resultType="java.lang.Integer" >
+    select count(*) from t_article
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_article
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.articlename != null" >
+        articlename = #{record.articlename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.articletime != null" >
+        articletime = #{record.articletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.articleip != null" >
+        articleip = #{record.articleip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.articleclick != null" >
+        articleclick = #{record.articleclick,jdbcType=INTEGER},
+      </if>
+      <if test="record.articletype != null" >
+        articletype = #{record.articletype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.articlemodle != null" >
+        articlemodle = #{record.articlemodle,jdbcType=CHAR},
+      </if>
+      <if test="record.articlesupport != null" >
+        articlesupport = #{record.articlesupport,jdbcType=CHAR},
+      </if>
+      <if test="record.articlecontent != null" >
+        articlecontent = #{record.articlecontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_article
+    set id = #{record.id,jdbcType=VARCHAR},
+      userid = #{record.userid,jdbcType=VARCHAR},
+      articlename = #{record.articlename,jdbcType=VARCHAR},
+      articletime = #{record.articletime,jdbcType=TIMESTAMP},
+      articleip = #{record.articleip,jdbcType=VARCHAR},
+      articleclick = #{record.articleclick,jdbcType=INTEGER},
+      articletype = #{record.articletype,jdbcType=VARCHAR},
+      articlemodle = #{record.articlemodle,jdbcType=CHAR},
+      articlesupport = #{record.articlesupport,jdbcType=CHAR},
+      articlecontent = #{record.articlecontent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_article
+    set id = #{record.id,jdbcType=VARCHAR},
+      userid = #{record.userid,jdbcType=VARCHAR},
+      articlename = #{record.articlename,jdbcType=VARCHAR},
+      articletime = #{record.articletime,jdbcType=TIMESTAMP},
+      articleip = #{record.articleip,jdbcType=VARCHAR},
+      articleclick = #{record.articleclick,jdbcType=INTEGER},
+      articletype = #{record.articletype,jdbcType=VARCHAR},
+      articlemodle = #{record.articlemodle,jdbcType=CHAR},
+      articlesupport = #{record.articlesupport,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="zh.base.entity.TArticle" >
+    update t_article
+    <set >
+      <if test="articlename != null" >
+        articlename = #{articlename,jdbcType=VARCHAR},
+      </if>
+      <if test="articletime != null" >
+        articletime = #{articletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleip != null" >
+        articleip = #{articleip,jdbcType=VARCHAR},
+      </if>
+      <if test="articleclick != null" >
+        articleclick = #{articleclick,jdbcType=INTEGER},
+      </if>
+      <if test="articletype != null" >
+        articletype = #{articletype,jdbcType=VARCHAR},
+      </if>
+      <if test="articlemodle != null" >
+        articlemodle = #{articlemodle,jdbcType=CHAR},
+      </if>
+      <if test="articlesupport != null" >
+        articlesupport = #{articlesupport,jdbcType=CHAR},
+      </if>
+      <if test="articlecontent != null" >
+        articlecontent = #{articlecontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+      and userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="zh.base.entity.TArticle" >
+    update t_article
+    set articlename = #{articlename,jdbcType=VARCHAR},
+      articletime = #{articletime,jdbcType=TIMESTAMP},
+      articleip = #{articleip,jdbcType=VARCHAR},
+      articleclick = #{articleclick,jdbcType=INTEGER},
+      articletype = #{articletype,jdbcType=VARCHAR},
+      articlemodle = #{articlemodle,jdbcType=CHAR},
+      articlesupport = #{articlesupport,jdbcType=CHAR},
+      articlecontent = #{articlecontent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+      and userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zh.base.entity.TArticle" >
+    update t_article
+    set articlename = #{articlename,jdbcType=VARCHAR},
+      articletime = #{articletime,jdbcType=TIMESTAMP},
+      articleip = #{articleip,jdbcType=VARCHAR},
+      articleclick = #{articleclick,jdbcType=INTEGER},
+      articletype = #{articletype,jdbcType=VARCHAR},
+      articlemodle = #{articlemodle,jdbcType=CHAR},
+      articlesupport = #{articlesupport,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+      and userid = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>

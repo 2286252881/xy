@@ -11,11 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import zh.base.entity.TUser;
 import zh.sys.service.IShiroService;
 import zh.sys.util.result.ExceptionResultInfo;
 import zh.sys.util.result.ResultInfo;
+import zh.sys.util.result.ResultUtil;
 
 @Controller
 public class SysController {
@@ -53,9 +55,23 @@ public class SysController {
 		return "redirect:/first.html";
 	}
 
+	@RequestMapping("/unauthorized")
+	public ModelAndView unauthorized(){
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("exceptionResultInfo", "没有访问权限!");
+		mv.setViewName("/comm/unauthorized");
+		return mv;
+	}
+	
+	
+	
+	
 	@RequestMapping("/testShiroAnnotation")
 	public String testShiroAnnotation(HttpServletRequest request) {
 		request.getSession().setAttribute("key", "value1234");
+		
+		Subject subject = SecurityUtils.getSubject();
+		System.out.println("================================role:"+subject.hasRole("admin"));
 		try {
 			shiroService.testMethod();
 		} catch (ExceptionResultInfo e) {
