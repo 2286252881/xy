@@ -72,14 +72,20 @@
 				/comm/login.jsp = anon
 				/first.html=anon
 				/login.html=anon
-				
 				/jsp/admin/admin.jsp=roles[admin]
 				/jsp/user/user.jsp=roles[user]
 				/** = authc
 			</value>
 		</property> -->
+		<property name="filters">
+			<map>
+				<!-- 自定义 角色授权拦截器-->
+				<entry key="roles" value-ref="myRolesAuthorizationFilter" />
+			</map>
+		</property>
 		<property name="filterChainDefinitionMap" ref="filterChainDefinitionMap"/>
 	</bean>
+	<bean id="myRolesAuthorizationFilter" class="zh.shiro.MyRolesAuthorizationFilter"/>
 	<!-- 通过工厂方配置beanMap -->
 	<bean id="filterChainDefinitionMap" factory-bean="filterChainDefinitionMapBuilder" factory-method="buildFilterChainDefinitionMap"></bean>
 	<bean id="filterChainDefinitionMapBuilder" class="zh.shiro.factory.FilterChainDefinitionMapBuilder"></bean>

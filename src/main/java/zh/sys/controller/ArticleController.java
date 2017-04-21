@@ -35,4 +35,22 @@ public class ArticleController {
 		mv.setViewName("/jsp/article/articleType");
 		return mv;
 	}
+	//添加文章分类
+	@RequestMapping("/toAddArticleType")
+	public ModelAndView toAddArticleType(TArticletype articletype){
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("/jsp/article/addArticleType");
+		return mv;
+	}
+	//文章详情页面
+	@RequestMapping("/toArticle")
+	public ModelAndView toArticle(){
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("/jsp/article/articleShow");
+		return mv;
+	}
+	
+	
+	
+	
 }

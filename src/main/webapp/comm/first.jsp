@@ -185,8 +185,8 @@
 		<div>
 			<ul>
 				<li style="text-align: center;">VIP1</li>
-				<li><a href="${baseurl}/jsp/admin/admin.jsp">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="${baseurl}/jsp/user/user.jsp">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/toArticle.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/toArticle.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>

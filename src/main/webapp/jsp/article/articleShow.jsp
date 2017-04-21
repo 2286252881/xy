@@ -8,21 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-		分类管理
-		<br>
-		添加分类：<a href="${baseurl}/toAddArticleType.html">添加分类</a>
-		<br/>
-		查询分类：<input type="text" />
-		<br/>
-		分类列表
-		<div>
-			<ul>
-				<c:forEach items="${articletypes}" var="articleType">
-					<li>${articleType.articletypename}</li>
-				</c:forEach>
-			</ul>
-		</div>
-	</div>
+	文章详细信息
 </body>
 </html>
