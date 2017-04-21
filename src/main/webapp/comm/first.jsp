@@ -155,8 +155,8 @@
 	<!-- 导航栏部分 -->
 	<div class="fixed-nav-bar">
 		<input id="principal" type="hidden" value="<shiro:principal property="username"/>" /> 您好!
-		<shiro:principal property="username"/>
-		<a id="logoutFlag" href="${baseurl}/logout.html">退出</a>
+		<shiro:principal property="username" />
+		&nbsp;<a id="aboutMe" style="color: white;display: none" href="#" onclick="aboutMe()" >个人中心</a> &nbsp;<a style="color: white;display: none" id="logoutFlag" href="${baseurl}/logout.html">退出</a>
 		<shiro:guest>请&nbsp;<a href="${baseurl}/comm/login.jsp">登录</a>&nbsp;或&nbsp;<a href="${baseurl}/comm/reg.jsp">注册</a>
 		</shiro:guest>
 	</div>
@@ -260,8 +260,10 @@
 		var principal = $("#principal").val();
 		if (principal) {
 			$("#logoutFlag").show();
+			$("#aboutMe").show();
 		} else {
 			$("#logoutFlag").hide();
+			$("#aboutMe").hide();
 		}
 		//导航菜单点击事件开始
 		/* $("#nav_navbar li:first-child").addClass('yy');
@@ -272,7 +274,6 @@
 		//导航菜单点击事件结束
 		if (window.Event)
 			document.captureEvents(Event.MOUSEUP);
-
 		document.oncontextmenu = function() {
 			event.cancelBubble = true
 			event.returnValue = false;
@@ -292,5 +293,8 @@
 			}
 		}
 	});
+	function aboutMe() {
+		window.location.href = "${baseurl}/toArticleType.html?userid="+<shiro:principal property="id"/>;
+	};
 </script>
 </html>

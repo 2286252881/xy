@@ -90,6 +90,7 @@ public class CustomRealm extends AuthorizingRealm {
 		}
 		//3.创建SimpleAuthorizationInfo,并设置其roles属性
 		SimpleAuthorizationInfo info= new SimpleAuthorizationInfo(roles);
+		info.addStringPermission("user:add");
 		//4.返回SimpleAuthenticationInfo对象
 		return info;
 	}

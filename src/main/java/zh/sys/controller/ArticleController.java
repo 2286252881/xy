@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import zh.base.entity.TArticletype;
 import zh.sys.service.IArticleTypeService;
@@ -25,7 +26,13 @@ public class ArticleController {
 	}
 	//到达分类列表页面
 	@RequestMapping("/toArticleType")
-	public String toArticleType(){
-		return "/jsp/article/articleType";
+	public ModelAndView toArticleType(TArticletype articletype){
+		System.out.println(articletype.getUserid());
+		ModelAndView mv=new ModelAndView();
+		List<TArticletype> articletypes=articleService.getArticleType(articletype);
+		
+		mv.addObject("articletypes", articletypes);
+		mv.setViewName("/jsp/article/articleType");
+		return mv;
 	}
 }

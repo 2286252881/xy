@@ -19,8 +19,11 @@ public class ArticleServiceImpl implements IArticleTypeService {
 	public List<TArticletype> getArticleType(TArticletype articletype) {
 		TArticletypeExample articletypeExample=new TArticletypeExample();
 		TArticletypeExample.Criteria criteria=articletypeExample.createCriteria();
-		if(null!=articletype.getId()||"".equals(articletype.getId())){
-			criteria.andIdEqualTo(articletype.getId());
+		if(null!=articletype.getUserid()||"".equals(articletype.getUserid())){
+			criteria.andUseridEqualTo(articletype.getUserid());
+		}
+		if(null!=articletype.getArticletypename()||"".equals(articletype.getArticletypename())){
+			criteria.andArticletypenameLike(articletype.getArticletypename());
 		}
 		return articletypeMapper.selectByExample(articletypeExample);
 	}
