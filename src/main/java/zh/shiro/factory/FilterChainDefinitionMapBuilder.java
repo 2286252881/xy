@@ -19,7 +19,9 @@ public class FilterChainDefinitionMapBuilder {
 		//添加文章分类页面
 		map.put("/toAddArticleType.html","authc,perms[admin:add]");
 		//文章详细信息列表
-		map.put("/toArticle.html", "authc,roles[admin,v1]");
+		map.put("/toArticleV1.html", "authc,roles[admin,v1]");
+		map.put("/toArticleV2.html", "authc,roles[admin,v2]");
+		map.put("/toArticleV3.html", "authc,roles[admin,v3]");
 		return map;
 	}
 }

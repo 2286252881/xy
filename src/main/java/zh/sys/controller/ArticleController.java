@@ -43,14 +43,23 @@ public class ArticleController {
 		return mv;
 	}
 	//文章详情页面
-	@RequestMapping("/toArticle")
-	public ModelAndView toArticle(){
+	@RequestMapping("/toArticleV1")
+	public ModelAndView toArticleV1(){
 		ModelAndView mv=new ModelAndView();
 		mv.setViewName("/jsp/article/articleShow");
 		return mv;
 	}
 	
-	
-	
-	
+	@RequestMapping("/toArticleV2")
+	public ModelAndView toArticleV2(){
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("/jsp/article/articleShow");
+		return mv;
+	}
+	@RequestMapping("/toArticleV3")
+	public ModelAndView toArticleV3(){
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("/jsp/article/articleShow");
+		return mv;
+	}
 }

@@ -185,8 +185,8 @@
 		<div>
 			<ul>
 				<li style="text-align: center;">VIP1</li>
-				<li><a href="${baseurl}/toArticle.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="${baseurl}/toArticle.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/toArticleV1.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/toArticleV1.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
@@ -203,8 +203,8 @@
 		<div>
 			<ul>
 				<li style="text-align: center;">VIP2</li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/toArticleV2.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/toArticleV2.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
@@ -221,8 +221,8 @@
 		<div>
 			<ul>
 				<li style="text-align: center;">VIP3</li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/toArticleV3.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<li><a href="${baseurl}/toArticleV3.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
