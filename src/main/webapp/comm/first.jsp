@@ -185,16 +185,9 @@
 		<div>
 			<ul>
 				<li style="text-align: center;">VIP1</li>
-				<li><a href="${baseurl}/toArticleV1.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="${baseurl}/toArticleV1.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话</a></li>
+				<c:forEach items="${v1}" var="v" >
+					<li><a href="${baseurl}/toArticleV1.html">${v.articlename}</a></li>
+				</c:forEach>
 				<p>
 					<a href="#">更多>></a>
 				</p>
@@ -203,16 +196,9 @@
 		<div>
 			<ul>
 				<li style="text-align: center;">VIP2</li>
-				<li><a href="${baseurl}/toArticleV2.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="${baseurl}/toArticleV2.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<c:forEach items="${v2}" var="v" >
+					<li><a href="${baseurl}/toArticleV2.html">${v.articlename}</a></li>
+				</c:forEach>
 				<p>
 					<a href="#">更多>></a>
 				</p>
@@ -221,16 +207,9 @@
 		<div>
 			<ul>
 				<li style="text-align: center;">VIP3</li>
-				<li><a href="${baseurl}/toArticleV3.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="${baseurl}/toArticleV3.html">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
+				<c:forEach items="${v3}" var="v" >
+					<li><a href="${baseurl}/toArticleV3.html">${v.articlename}</a></li>
+				</c:forEach>
 				<p>
 					<a href="#">更多>></a>
 				</p>
@@ -239,16 +218,6 @@
 		<div>
 			<ul>
 				<li style="text-align: center;">推荐文章</li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
-				<li><a href="#">习近平"4.19讲话"周年:国家网络治理五观</a></li>
 			</ul>
 		</div>
 		<p style="clear: both;"></p>

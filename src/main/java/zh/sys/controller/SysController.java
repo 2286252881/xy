@@ -1,5 +1,7 @@
 package zh.sys.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -12,7 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import zh.base.entity.TArticle;
 import zh.base.entity.TUser;
+import zh.sys.service.IArticleTypeService;
 import zh.sys.service.IShiroService;
 import zh.sys.util.result.ExceptionResultInfo;
 import zh.sys.util.result.ResultInfo;
@@ -22,10 +26,31 @@ public class SysController {
 	private static final Logger LOGGER = Logger.getLogger(SysController.class);
 	@Autowired
 	private IShiroService shiroService;
+	
+	
+	@Autowired
+	private IArticleTypeService articleService;
+	
+	
 
 	@RequestMapping("/first")
-	public String sysList() {
-		return "/comm/first";
+	public ModelAndView sysList() {
+		ModelAndView mv=new ModelAndView();
+		TArticle article=new TArticle();
+		article.setArticlemodle("1");
+		//查询v1会员最新的10条数据
+		List<TArticle> v1=articleService.getArticles(article);
+		//查询v2会员最新的10条数据
+		article.setArticlemodle("2");
+		List<TArticle> v2=articleService.getArticles(article);
+		//查询v3会员最新的10条数据
+		article.setArticlemodle("3");
+		List<TArticle> v3=articleService.getArticles(article);
+		mv.addObject("v1", v1);
+		mv.addObject("v2", v2);
+		mv.addObject("v3", v3);
+		mv.setViewName("/comm/first");
+		return mv;
 	}
 
 	@RequestMapping("/login")
