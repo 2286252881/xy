@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import zh.base.entity.TArticle;
 import zh.base.entity.TArticletype;
 import zh.sys.service.IArticleTypeService;
 /**
@@ -44,21 +45,27 @@ public class ArticleController {
 	}
 	//文章详情页面
 	@RequestMapping("/toArticleV1")
-	public ModelAndView toArticleV1(){
+	public ModelAndView toArticleV1(TArticle article){
 		ModelAndView mv=new ModelAndView();
+		TArticle a=articleService.getArticle(article);
+		mv.addObject("a", a);
 		mv.setViewName("/jsp/article/articleShow");
 		return mv;
 	}
 	
 	@RequestMapping("/toArticleV2")
-	public ModelAndView toArticleV2(){
+	public ModelAndView toArticleV2(TArticle article){
 		ModelAndView mv=new ModelAndView();
+		TArticle a=articleService.getArticle(article);
+		mv.addObject("a", a);
 		mv.setViewName("/jsp/article/articleShow");
 		return mv;
 	}
 	@RequestMapping("/toArticleV3")
-	public ModelAndView toArticleV3(){
+	public ModelAndView toArticleV3(TArticle article){
 		ModelAndView mv=new ModelAndView();
+		TArticle a=articleService.getArticle(article);
+		mv.addObject("a", a);
 		mv.setViewName("/jsp/article/articleShow");
 		return mv;
 	}
