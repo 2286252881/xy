@@ -186,7 +186,7 @@
 			<ul>
 				<li style="text-align: center;">VIP1</li>
 				<c:forEach items="${v1}" var="v" >
-					<li><a href="${baseurl}/toArticleV1.html">${v.articlename}</a></li>
+					<li><a href="${baseurl}/toArticleV1.html?id=${v.id}">${v.articlename}</a></li>
 				</c:forEach>
 				<p>
 					<a href="#">更多>></a>
@@ -197,7 +197,7 @@
 			<ul>
 				<li style="text-align: center;">VIP2</li>
 				<c:forEach items="${v2}" var="v" >
-					<li><a href="${baseurl}/toArticleV2.html">${v.articlename}</a></li>
+					<li><a href="${baseurl}/toArticleV2.html?id=${v.id}">${v.articlename}</a></li>
 				</c:forEach>
 				<p>
 					<a href="#">更多>></a>
@@ -208,7 +208,7 @@
 			<ul>
 				<li style="text-align: center;">VIP3</li>
 				<c:forEach items="${v3}" var="v" >
-					<li><a href="${baseurl}/toArticleV3.html">${v.articlename}</a></li>
+					<li><a href="${baseurl}/toArticleV3.html?id=${v.id}">${v.articlename}</a></li>
 				</c:forEach>
 				<p>
 					<a href="#">更多>></a>
