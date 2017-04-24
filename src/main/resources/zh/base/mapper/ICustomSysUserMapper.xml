@@ -11,4 +11,8 @@
 	<select id="getRoles" parameterType="zh.base.entity.TUser" resultType="zh.base.entity.TRole">
 		SELECT * FROM t_role WHERE id IN(SELECT roleid FROM t_userrole WHERE userid=#{user.id})
 	</select>
+	<!-- 根据文章id查询文章 -->
+	<select id="getArticle" parameterType="zh.base.entity.TArticle" resultType="zh.base.entity.TArticle">
+		select * from t_article where id=#{article.id}
+	</select>
 </mapper>
