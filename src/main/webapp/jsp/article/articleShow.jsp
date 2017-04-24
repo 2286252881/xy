@@ -9,5 +9,11 @@
 </head>
 <body>
 	文章详细信息
+	<div id="title">
+		${a.articlename}
+	</div>
+	<div id="content">
+		
+	</div>
 </body>
 </html>
