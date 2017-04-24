@@ -14,6 +14,7 @@ public class FilterChainDefinitionMapBuilder {
 		map.put("/plugins/**", "anon");
 		//退出登陆
 		map.put("/logout.html", "logout");
+		map.put("/unauthorized.html", "authc");
 		//文章类型页面
 		map.put("/toArticleType.html","authc,roles[admin]");
 		//添加文章分类页面
