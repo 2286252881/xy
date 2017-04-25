@@ -1,4 +1,4 @@
-package zh.sys.controller;
+package zh.sys.controller.home;
 
 import java.util.List;
 
@@ -75,29 +75,13 @@ public class SysController {
 		}
 		return "redirect:/first.html";
 	}
-
+	
 	@RequestMapping("/unauthorized")
 	public ModelAndView unauthorized(){
 		ModelAndView mv=new ModelAndView();
-		mv.addObject("exceptionResultInfo", "没有访问权限!");
+		TUser user= (TUser) SecurityUtils.getSubject().getPrincipal();
+		mv.addObject("exceptionResultInfo", user.getUsername()+":用户没有访问权限!");
 		mv.setViewName("/comm/unauthorized");
 		return mv;
-	}
-	
-	
-	
-	
-	@RequestMapping("/testShiroAnnotation")
-	public String testShiroAnnotation(HttpServletRequest request) {
-		request.getSession().setAttribute("key", "value1234");
-		
-		Subject subject = SecurityUtils.getSubject();
-		System.out.println("================================role:"+subject.hasRole("admin"));
-		try {
-			shiroService.testMethod();
-		} catch (ExceptionResultInfo e) {
-			e.printStackTrace();
-		}
-		return "redirect:/first.html";
 	}
 }

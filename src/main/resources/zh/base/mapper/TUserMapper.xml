@@ -11,7 +11,7 @@
     <result column="updateipaddress" property="updateipaddress" jdbcType="VARCHAR" />
     <result column="registerdate" property="registerdate" jdbcType="TIMESTAMP" />
     <result column="registeripaddress" property="registeripaddress" jdbcType="VARCHAR" />
-    <result column="groupid" property="groupid" jdbcType="VARCHAR" />
+    <result column="truename" property="truename" jdbcType="VARCHAR" />
     <result column="loginidaddress" property="loginidaddress" jdbcType="VARCHAR" />
     <result column="useraddress" property="useraddress" jdbcType="VARCHAR" />
     <result column="salt" property="salt" jdbcType="VARCHAR" />
@@ -88,7 +88,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, username, password, createdate, updatedate, createipaddress, updateipaddress, 
-    registerdate, registeripaddress, groupid, loginidaddress, useraddress, salt, phone, 
+    registerdate, registeripaddress, truename, loginidaddress, useraddress, salt, phone, 
     sex, qq, email, birthday, description, imageurl, school, bloodtype, says, locked, 
     freeze
   </sql>
@@ -126,7 +126,7 @@
     insert into t_user (id, username, password, 
       createdate, updatedate, createipaddress, 
       updateipaddress, registerdate, registeripaddress, 
-      groupid, loginidaddress, useraddress, 
+      truename, loginidaddress, useraddress, 
       salt, phone, sex, qq, 
       email, birthday, description, 
       imageurl, school, bloodtype, 
@@ -134,7 +134,7 @@
     values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{createdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}, #{createipaddress,jdbcType=VARCHAR}, 
       #{updateipaddress,jdbcType=VARCHAR}, #{registerdate,jdbcType=TIMESTAMP}, #{registeripaddress,jdbcType=VARCHAR}, 
-      #{groupid,jdbcType=VARCHAR}, #{loginidaddress,jdbcType=VARCHAR}, #{useraddress,jdbcType=VARCHAR}, 
+      #{truename,jdbcType=VARCHAR}, #{loginidaddress,jdbcType=VARCHAR}, #{useraddress,jdbcType=VARCHAR}, 
       #{salt,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR}, 
       #{imageurl,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, #{bloodtype,jdbcType=VARCHAR}, 
@@ -170,8 +170,8 @@
       <if test="registeripaddress != null" >
         registeripaddress,
       </if>
-      <if test="groupid != null" >
-        groupid,
+      <if test="truename != null" >
+        truename,
       </if>
       <if test="loginidaddress != null" >
         loginidaddress,
@@ -247,8 +247,8 @@
       <if test="registeripaddress != null" >
         #{registeripaddress,jdbcType=VARCHAR},
       </if>
-      <if test="groupid != null" >
-        #{groupid,jdbcType=VARCHAR},
+      <if test="truename != null" >
+        #{truename,jdbcType=VARCHAR},
       </if>
       <if test="loginidaddress != null" >
         #{loginidaddress,jdbcType=VARCHAR},
@@ -333,8 +333,8 @@
       <if test="record.registeripaddress != null" >
         registeripaddress = #{record.registeripaddress,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupid != null" >
-        groupid = #{record.groupid,jdbcType=VARCHAR},
+      <if test="record.truename != null" >
+        truename = #{record.truename,jdbcType=VARCHAR},
       </if>
       <if test="record.loginidaddress != null" >
         loginidaddress = #{record.loginidaddress,jdbcType=VARCHAR},
@@ -397,7 +397,7 @@
       updateipaddress = #{record.updateipaddress,jdbcType=VARCHAR},
       registerdate = #{record.registerdate,jdbcType=TIMESTAMP},
       registeripaddress = #{record.registeripaddress,jdbcType=VARCHAR},
-      groupid = #{record.groupid,jdbcType=VARCHAR},
+      truename = #{record.truename,jdbcType=VARCHAR},
       loginidaddress = #{record.loginidaddress,jdbcType=VARCHAR},
       useraddress = #{record.useraddress,jdbcType=VARCHAR},
       salt = #{record.salt,jdbcType=VARCHAR},
@@ -444,8 +444,8 @@
       <if test="registeripaddress != null" >
         registeripaddress = #{registeripaddress,jdbcType=VARCHAR},
       </if>
-      <if test="groupid != null" >
-        groupid = #{groupid,jdbcType=VARCHAR},
+      <if test="truename != null" >
+        truename = #{truename,jdbcType=VARCHAR},
       </if>
       <if test="loginidaddress != null" >
         loginidaddress = #{loginidaddress,jdbcType=VARCHAR},
@@ -505,7 +505,7 @@
       updateipaddress = #{updateipaddress,jdbcType=VARCHAR},
       registerdate = #{registerdate,jdbcType=TIMESTAMP},
       registeripaddress = #{registeripaddress,jdbcType=VARCHAR},
-      groupid = #{groupid,jdbcType=VARCHAR},
+      truename = #{truename,jdbcType=VARCHAR},
       loginidaddress = #{loginidaddress,jdbcType=VARCHAR},
       useraddress = #{useraddress,jdbcType=VARCHAR},
       salt = #{salt,jdbcType=VARCHAR},

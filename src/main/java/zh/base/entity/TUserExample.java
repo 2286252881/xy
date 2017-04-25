@@ -705,73 +705,73 @@ public class TUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andGroupidIsNull() {
-            addCriterion("groupid is null");
+        public Criteria andTruenameIsNull() {
+            addCriterion("truename is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidIsNotNull() {
-            addCriterion("groupid is not null");
+        public Criteria andTruenameIsNotNull() {
+            addCriterion("truename is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidEqualTo(String value) {
-            addCriterion("groupid =", value, "groupid");
+        public Criteria andTruenameEqualTo(String value) {
+            addCriterion("truename =", value, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidNotEqualTo(String value) {
-            addCriterion("groupid <>", value, "groupid");
+        public Criteria andTruenameNotEqualTo(String value) {
+            addCriterion("truename <>", value, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidGreaterThan(String value) {
-            addCriterion("groupid >", value, "groupid");
+        public Criteria andTruenameGreaterThan(String value) {
+            addCriterion("truename >", value, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidGreaterThanOrEqualTo(String value) {
-            addCriterion("groupid >=", value, "groupid");
+        public Criteria andTruenameGreaterThanOrEqualTo(String value) {
+            addCriterion("truename >=", value, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidLessThan(String value) {
-            addCriterion("groupid <", value, "groupid");
+        public Criteria andTruenameLessThan(String value) {
+            addCriterion("truename <", value, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidLessThanOrEqualTo(String value) {
-            addCriterion("groupid <=", value, "groupid");
+        public Criteria andTruenameLessThanOrEqualTo(String value) {
+            addCriterion("truename <=", value, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidLike(String value) {
-            addCriterion("groupid like", value, "groupid");
+        public Criteria andTruenameLike(String value) {
+            addCriterion("truename like", value, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidNotLike(String value) {
-            addCriterion("groupid not like", value, "groupid");
+        public Criteria andTruenameNotLike(String value) {
+            addCriterion("truename not like", value, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidIn(List<String> values) {
-            addCriterion("groupid in", values, "groupid");
+        public Criteria andTruenameIn(List<String> values) {
+            addCriterion("truename in", values, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidNotIn(List<String> values) {
-            addCriterion("groupid not in", values, "groupid");
+        public Criteria andTruenameNotIn(List<String> values) {
+            addCriterion("truename not in", values, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidBetween(String value1, String value2) {
-            addCriterion("groupid between", value1, value2, "groupid");
+        public Criteria andTruenameBetween(String value1, String value2) {
+            addCriterion("truename between", value1, value2, "truename");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidNotBetween(String value1, String value2) {
-            addCriterion("groupid not between", value1, value2, "groupid");
+        public Criteria andTruenameNotBetween(String value1, String value2) {
+            addCriterion("truename not between", value1, value2, "truename");
             return (Criteria) this;
         }
 

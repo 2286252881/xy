@@ -21,7 +21,7 @@ public class TUser {
 
     private String registeripaddress;
 
-    private String groupid;
+    private String truename;
 
     private String loginidaddress;
 
@@ -125,12 +125,12 @@ public class TUser {
         this.registeripaddress = registeripaddress == null ? null : registeripaddress.trim();
     }
 
-    public String getGroupid() {
-        return groupid;
+    public String getTruename() {
+        return truename;
     }
 
-    public void setGroupid(String groupid) {
-        this.groupid = groupid == null ? null : groupid.trim();
+    public void setTruename(String truename) {
+        this.truename = truename == null ? null : truename.trim();
     }
 
     public String getLoginidaddress() {

@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="content">
-		<span style="color: red;font-weight: bold;">无访问权限!&nbsp;</span><span style="color:blue" id="num"></span>秒后自动返回,您也可以点击这里>><a href="javascript:history.go(-1)" style="text-decoration: none;">返回</a>
+		<span style="color: red;font-weight: bold;">${exceptionResultInfo}</span>&nbsp;<span style="color:blue" id="num"></span>秒后自动返回,您也可以点击这里>><a href="javascript:history.go(-1)" style="text-decoration: none;">返回</a>
 	</div>
 </body>
 <script type="text/javascript">
