@@ -46,4 +46,14 @@ public class SysServiceImpl implements ISysService {
 	public List<TRole> getRoles(TUser user) throws ExceptionResultInfo {
 		return customSysUserMapper.getRoles(user);
 	}
+	
+	/**
+	 * 管理员获取所有用户
+	 */
+	@Override
+	public List<TUser> getAllUsers() throws ExceptionResultInfo {
+		TUserExample userExample=new TUserExample();
+		List<TUser> us=userMapper.selectByExample(userExample);
+		return us;
+	}
 }

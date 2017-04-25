@@ -13,4 +13,6 @@ public interface ISysService {
 	public TUser getUserByUserName(String username)throws ExceptionResultInfo;
 	//获取登陆用户所有角色
 	public List<TRole>getRoles(TUser user)throws ExceptionResultInfo;
+	//获取所有用户列表
+	public List<TUser> getAllUsers()throws ExceptionResultInfo;
 }
