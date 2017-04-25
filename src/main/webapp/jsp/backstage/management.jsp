@@ -8,6 +8,9 @@
 <title>个人中心</title>
 </head>
 <body>
+	<div style="width: 90%; margin: 10px auto;">
+		<jsp:include page="menu.jsp"></jsp:include>
+	</div>
 	<div>
 		分类管理
 		<br>
