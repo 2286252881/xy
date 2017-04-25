@@ -26,14 +26,14 @@ public class ArticleController {
 		return null;
 	}
 	//到达分类列表页面
-	@RequestMapping("/toArticleType")
+	@RequestMapping("/toManagement")
 	public ModelAndView toArticleType(TArticletype articletype){
 		System.out.println(articletype.getUserid());
 		ModelAndView mv=new ModelAndView();
 		List<TArticletype> articletypes=articleService.getArticleType(articletype);
 		
 		mv.addObject("articletypes", articletypes);
-		mv.setViewName("/jsp/article/articleType");
+		mv.setViewName("/jsp/backstage/management");
 		return mv;
 	}
 	//添加文章分类
