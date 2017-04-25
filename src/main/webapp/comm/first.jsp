@@ -263,7 +263,7 @@
 		}
 	});
 	function aboutMe() {
-		window.location.href = "${baseurl}/toArticleType.html?userid="+<shiro:principal property="id"/>;
+		window.location.href = "${baseurl}/toManagement.html?userid="+<shiro:principal property="id"/>;
 	};
 </script>
 </html>
