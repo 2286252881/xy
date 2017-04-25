@@ -7,6 +7,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" >
 <script type="text/javascript" src="${pageContext.request.contextPath}/plugins/wangEditor-2.1.22/dist/js/lib/jquery-1.10.2.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/layui/css/layui.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/layui/css/layui.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/layer/layer.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/plugins/layui/layui.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/layer/layer.js"></script> --%>
