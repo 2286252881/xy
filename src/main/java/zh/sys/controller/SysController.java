@@ -55,7 +55,6 @@ public class SysController {
 
 	@RequestMapping("/login")
 	public String sysLogin(TUser sysUser) throws ExceptionResultInfo {
-		ResultInfo resultInfo=null;
 		Subject currentUser = SecurityUtils.getSubject();
 		if (!currentUser.isAuthenticated()) {
 			// 把用户名和密码封装为 UsernamePasswordToken 对象
