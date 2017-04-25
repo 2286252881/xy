@@ -16,7 +16,7 @@ public class FilterChainDefinitionMapBuilder {
 		map.put("/logout.html", "logout");
 		map.put("/unauthorized.html", "authc");
 		//文章类型页面
-		map.put("/toArticleType.html","authc,roles[admin]");
+		map.put("/ArticleController.java.html","authc,roles[admin]");
 		//添加文章分类页面
 		map.put("/toAddArticleType.html","authc,perms[admin:add]");
 		//文章详细信息列表
