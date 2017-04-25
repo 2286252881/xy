@@ -59,6 +59,7 @@ public class CustomRealm extends AuthorizingRealm {
 		}
 		// 6. 根据用户的情况, 来构建 AuthenticationInfo 对象并返回. 通常使用的实现类为:SimpleAuthenticationInfo
 		// 1). principal: 认证的实体信息. 可以是 username, 也可以是数据表对应的用户的实体类对象.
+		@SuppressWarnings("unused")
 		Object principal = u.getUsername();
 		//2). credentials: 密码. 
 		Object credentials = u.getPassword(); 

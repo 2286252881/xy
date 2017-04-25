@@ -19,7 +19,6 @@ import zh.base.entity.TUser;
 import zh.sys.service.IArticleTypeService;
 import zh.sys.service.IShiroService;
 import zh.sys.util.result.ExceptionResultInfo;
-import zh.sys.util.result.ResultInfo;
 
 @Controller
 public class SysController {
