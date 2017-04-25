@@ -155,7 +155,7 @@
 	<!-- 导航栏部分 -->
 	<div class="fixed-nav-bar">
 		<input id="principal" type="hidden" value="<shiro:principal property="username"/>" /> 您好!
-		<shiro:principal property="username" />
+		<shiro:principal property="truename" />
 		&nbsp;<a id="aboutMe" style="color: white;display: none" href="#" onclick="aboutMe()" >个人中心</a> &nbsp;<a style="color: white;display: none" id="logoutFlag" href="${baseurl}/logout.html">退出</a>
 		<shiro:guest>请&nbsp;<a href="${baseurl}/comm/login.jsp">登录</a>&nbsp;或&nbsp;<a href="${baseurl}/comm/reg.jsp">注册</a>
 		</shiro:guest>
