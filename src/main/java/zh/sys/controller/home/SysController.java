@@ -2,8 +2,6 @@ package zh.sys.controller.home;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -17,15 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 import zh.base.entity.TArticle;
 import zh.base.entity.TUser;
 import zh.sys.service.IArticleTypeService;
-import zh.sys.service.IShiroService;
 import zh.sys.util.result.ExceptionResultInfo;
 
 @Controller
 public class SysController {
 	private static final Logger LOGGER = Logger.getLogger(SysController.class);
-	@Autowired
-	private IShiroService shiroService;
-	
 	
 	@Autowired
 	private IArticleTypeService articleService;
@@ -80,7 +74,7 @@ public class SysController {
 	public ModelAndView unauthorized(){
 		ModelAndView mv=new ModelAndView();
 		TUser user= (TUser) SecurityUtils.getSubject().getPrincipal();
-		mv.addObject("exceptionResultInfo", user.getUsername()+":用户没有访问权限!");
+		mv.addObject("exceptionResultInfo", user.getTruename()+":您没有访问权限!");
 		mv.setViewName("/comm/unauthorized");
 		return mv;
 	}
