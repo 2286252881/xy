@@ -12,7 +12,6 @@
     <result column="registerdate" property="registerdate" jdbcType="TIMESTAMP" />
     <result column="registeripaddress" property="registeripaddress" jdbcType="VARCHAR" />
     <result column="groupid" property="groupid" jdbcType="VARCHAR" />
-    <result column="menugroupid" property="menugroupid" jdbcType="VARCHAR" />
     <result column="loginidaddress" property="loginidaddress" jdbcType="VARCHAR" />
     <result column="useraddress" property="useraddress" jdbcType="VARCHAR" />
     <result column="salt" property="salt" jdbcType="VARCHAR" />
@@ -89,9 +88,9 @@
   </sql>
   <sql id="Base_Column_List" >
     id, username, password, createdate, updatedate, createipaddress, updateipaddress, 
-    registerdate, registeripaddress, groupid, menugroupid, loginidaddress, useraddress, 
-    salt, phone, sex, qq, email, birthday, description, imageurl, school, bloodtype, 
-    says, locked, freeze
+    registerdate, registeripaddress, groupid, loginidaddress, useraddress, salt, phone, 
+    sex, qq, email, birthday, description, imageurl, school, bloodtype, says, locked, 
+    freeze
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="zh.base.entity.TUserExample" >
     select
@@ -127,21 +126,19 @@
     insert into t_user (id, username, password, 
       createdate, updatedate, createipaddress, 
       updateipaddress, registerdate, registeripaddress, 
-      groupid, menugroupid, loginidaddress, 
-      useraddress, salt, phone, 
-      sex, qq, email, birthday, 
-      description, imageurl, school, 
-      bloodtype, says, locked, 
-      freeze)
+      groupid, loginidaddress, useraddress, 
+      salt, phone, sex, qq, 
+      email, birthday, description, 
+      imageurl, school, bloodtype, 
+      says, locked, freeze)
     values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{createdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}, #{createipaddress,jdbcType=VARCHAR}, 
       #{updateipaddress,jdbcType=VARCHAR}, #{registerdate,jdbcType=TIMESTAMP}, #{registeripaddress,jdbcType=VARCHAR}, 
-      #{groupid,jdbcType=VARCHAR}, #{menugroupid,jdbcType=VARCHAR}, #{loginidaddress,jdbcType=VARCHAR}, 
-      #{useraddress,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
-      #{description,jdbcType=VARCHAR}, #{imageurl,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, 
-      #{bloodtype,jdbcType=VARCHAR}, #{says,jdbcType=VARCHAR}, #{locked,jdbcType=CHAR}, 
-      #{freeze,jdbcType=CHAR})
+      #{groupid,jdbcType=VARCHAR}, #{loginidaddress,jdbcType=VARCHAR}, #{useraddress,jdbcType=VARCHAR}, 
+      #{salt,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR}, 
+      #{imageurl,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, #{bloodtype,jdbcType=VARCHAR}, 
+      #{says,jdbcType=VARCHAR}, #{locked,jdbcType=CHAR}, #{freeze,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="zh.base.entity.TUser" >
     insert into t_user
@@ -175,9 +172,6 @@
       </if>
       <if test="groupid != null" >
         groupid,
-      </if>
-      <if test="menugroupid != null" >
-        menugroupid,
       </if>
       <if test="loginidaddress != null" >
         loginidaddress,
@@ -255,9 +249,6 @@
       </if>
       <if test="groupid != null" >
         #{groupid,jdbcType=VARCHAR},
-      </if>
-      <if test="menugroupid != null" >
-        #{menugroupid,jdbcType=VARCHAR},
       </if>
       <if test="loginidaddress != null" >
         #{loginidaddress,jdbcType=VARCHAR},
@@ -345,9 +336,6 @@
       <if test="record.groupid != null" >
         groupid = #{record.groupid,jdbcType=VARCHAR},
       </if>
-      <if test="record.menugroupid != null" >
-        menugroupid = #{record.menugroupid,jdbcType=VARCHAR},
-      </if>
       <if test="record.loginidaddress != null" >
         loginidaddress = #{record.loginidaddress,jdbcType=VARCHAR},
       </if>
@@ -410,7 +398,6 @@
       registerdate = #{record.registerdate,jdbcType=TIMESTAMP},
       registeripaddress = #{record.registeripaddress,jdbcType=VARCHAR},
       groupid = #{record.groupid,jdbcType=VARCHAR},
-      menugroupid = #{record.menugroupid,jdbcType=VARCHAR},
       loginidaddress = #{record.loginidaddress,jdbcType=VARCHAR},
       useraddress = #{record.useraddress,jdbcType=VARCHAR},
       salt = #{record.salt,jdbcType=VARCHAR},
@@ -459,9 +446,6 @@
       </if>
       <if test="groupid != null" >
         groupid = #{groupid,jdbcType=VARCHAR},
-      </if>
-      <if test="menugroupid != null" >
-        menugroupid = #{menugroupid,jdbcType=VARCHAR},
       </if>
       <if test="loginidaddress != null" >
         loginidaddress = #{loginidaddress,jdbcType=VARCHAR},
@@ -522,7 +506,6 @@
       registerdate = #{registerdate,jdbcType=TIMESTAMP},
       registeripaddress = #{registeripaddress,jdbcType=VARCHAR},
       groupid = #{groupid,jdbcType=VARCHAR},
-      menugroupid = #{menugroupid,jdbcType=VARCHAR},
       loginidaddress = #{loginidaddress,jdbcType=VARCHAR},
       useraddress = #{useraddress,jdbcType=VARCHAR},
       salt = #{salt,jdbcType=VARCHAR},

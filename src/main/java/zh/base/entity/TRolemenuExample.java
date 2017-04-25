@@ -175,73 +175,73 @@ public class TRolemenuExample {
             return (Criteria) this;
         }
 
-        public Criteria andRoididIsNull() {
-            addCriterion("roidid is null");
+        public Criteria andRoleidIsNull() {
+            addCriterion("roleid is null");
             return (Criteria) this;
         }
 
-        public Criteria andRoididIsNotNull() {
-            addCriterion("roidid is not null");
+        public Criteria andRoleidIsNotNull() {
+            addCriterion("roleid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRoididEqualTo(String value) {
-            addCriterion("roidid =", value, "roidid");
+        public Criteria andRoleidEqualTo(String value) {
+            addCriterion("roleid =", value, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididNotEqualTo(String value) {
-            addCriterion("roidid <>", value, "roidid");
+        public Criteria andRoleidNotEqualTo(String value) {
+            addCriterion("roleid <>", value, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididGreaterThan(String value) {
-            addCriterion("roidid >", value, "roidid");
+        public Criteria andRoleidGreaterThan(String value) {
+            addCriterion("roleid >", value, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididGreaterThanOrEqualTo(String value) {
-            addCriterion("roidid >=", value, "roidid");
+        public Criteria andRoleidGreaterThanOrEqualTo(String value) {
+            addCriterion("roleid >=", value, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididLessThan(String value) {
-            addCriterion("roidid <", value, "roidid");
+        public Criteria andRoleidLessThan(String value) {
+            addCriterion("roleid <", value, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididLessThanOrEqualTo(String value) {
-            addCriterion("roidid <=", value, "roidid");
+        public Criteria andRoleidLessThanOrEqualTo(String value) {
+            addCriterion("roleid <=", value, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididLike(String value) {
-            addCriterion("roidid like", value, "roidid");
+        public Criteria andRoleidLike(String value) {
+            addCriterion("roleid like", value, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididNotLike(String value) {
-            addCriterion("roidid not like", value, "roidid");
+        public Criteria andRoleidNotLike(String value) {
+            addCriterion("roleid not like", value, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididIn(List<String> values) {
-            addCriterion("roidid in", values, "roidid");
+        public Criteria andRoleidIn(List<String> values) {
+            addCriterion("roleid in", values, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididNotIn(List<String> values) {
-            addCriterion("roidid not in", values, "roidid");
+        public Criteria andRoleidNotIn(List<String> values) {
+            addCriterion("roleid not in", values, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididBetween(String value1, String value2) {
-            addCriterion("roidid between", value1, value2, "roidid");
+        public Criteria andRoleidBetween(String value1, String value2) {
+            addCriterion("roleid between", value1, value2, "roleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoididNotBetween(String value1, String value2) {
-            addCriterion("roidid not between", value1, value2, "roidid");
+        public Criteria andRoleidNotBetween(String value1, String value2) {
+            addCriterion("roleid not between", value1, value2, "roleid");
             return (Criteria) this;
         }
 

@@ -23,8 +23,6 @@ public class TUser {
 
     private String groupid;
 
-    private String menugroupid;
-
     private String loginidaddress;
 
     private String useraddress;
@@ -133,14 +131,6 @@ public class TUser {
 
     public void setGroupid(String groupid) {
         this.groupid = groupid == null ? null : groupid.trim();
-    }
-
-    public String getMenugroupid() {
-        return menugroupid;
-    }
-
-    public void setMenugroupid(String menugroupid) {
-        this.menugroupid = menugroupid == null ? null : menugroupid.trim();
     }
 
     public String getLoginidaddress() {

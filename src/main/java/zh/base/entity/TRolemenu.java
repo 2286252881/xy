@@ -5,7 +5,7 @@ import java.util.Date;
 public class TRolemenu {
     private String id;
 
-    private String roidid;
+    private String roleid;
 
     private String menuid;
 
@@ -23,12 +23,12 @@ public class TRolemenu {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getRoidid() {
-        return roidid;
+    public String getRoleid() {
+        return roleid;
     }
 
-    public void setRoidid(String roidid) {
-        this.roidid = roidid == null ? null : roidid.trim();
+    public void setRoleid(String roleid) {
+        this.roleid = roleid == null ? null : roleid.trim();
     }
 
     public String getMenuid() {

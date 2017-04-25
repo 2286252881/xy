@@ -40,11 +40,11 @@
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
-		<!-- <table schema="" tableName="t_user" />
+		<table schema="" tableName="t_user" />
 		<table schema="" tableName="t_role" />
 		<table schema="" tableName="t_userrole" />
 		<table schema="" tableName="t_rolemenu" />
-		<table schema="" tableName="t_menu" /> -->
+		<table schema="" tableName="t_menu" />
 		<table schema="" tableName="t_article" />
 		<table schema="" tableName="t_articletype" />
 		<!-- <table schema="" tableName="t_articlevisitor" /> -->
