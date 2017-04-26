@@ -10,3 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/layui/css/layui.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/plugins/layer/layer.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/plugins/layui/layui.js"></script>
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+ <script type="text/javascript" src="${pageContext.request.contextPath}/plugins/ztree/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/ztree/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/ztree/js/jquery.ztree.excheck.js"></script>

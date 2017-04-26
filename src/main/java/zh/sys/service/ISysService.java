@@ -15,4 +15,7 @@ public interface ISysService {
 	public List<TRole>getRoles(TUser user)throws ExceptionResultInfo;
 	//获取所有用户列表
 	public List<TUser> getAllUsers()throws ExceptionResultInfo;
+	
+	//删除用户信息
+	public void delUser(String userid)throws ExceptionResultInfo;
 }

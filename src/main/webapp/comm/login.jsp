@@ -24,7 +24,7 @@
 	<shiro:guest>
 		<h4>Login Page</h4>
 		<form class="loginForm" action="${baseurl}/login.html" method="POST">
-			username: <input type="text" name="username" /> <br> <br> password: <input type="password" name="password" /> <br> <br> <input type="submit" value="Submit" /> <a href="${baseurl}/first.html">goback!</a>
+			username: <input type="text" name="username" value="admin"/> <br> <br> password: <input type="password" name="password" value="1111" /> <br> <br> <input type="submit" value="Submit" /> <a href="${baseurl}/first.html">goback!</a>
 		</form>
 	</shiro:guest>
 </body>

@@ -1,5 +1,6 @@
 package zh.sys.controller.backstage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
+
+import zh.base.customEntity.Node;
 import zh.base.entity.TArticle;
 import zh.base.entity.TArticletype;
 import zh.sys.service.IArticleTypeService;
@@ -57,5 +61,15 @@ public class ArticleController {
 		mv.addObject("a", a);
 		mv.setViewName("/jsp/article/articleShow");
 		return mv;
+	}
+	
+	@RequestMapping("/toZtree")
+	public ModelAndView toZtree(){
+		ModelAndView mv=new ModelAndView();
+		List<Node> list=new ArrayList<Node>();
+		JSON json=(JSON) JSON.toJSON(list);
+		mv.addObject("nodes", json);
+		mv.setViewName("/jsp/backstage/ztree");
+		return mv; 
 	}
 }

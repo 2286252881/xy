@@ -56,4 +56,9 @@ public class SysServiceImpl implements ISysService {
 		List<TUser> us=userMapper.selectByExample(userExample);
 		return us;
 	}
+	
+	@Override
+	public void delUser(String userid) throws ExceptionResultInfo {
+		 userMapper.deleteByPrimaryKey(userid);
+	}
 }
